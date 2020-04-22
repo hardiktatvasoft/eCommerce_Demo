@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-#AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
-=begin
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
 appliances = Category.create! :name => "Home Appliances"
 mobile = Category.create! :name => "Mobile"
 clothings = Category.create! :name => "Clothings"
@@ -30,7 +30,7 @@ Product.create! :name => "Soft Ball", :price => 40.00, :description => "Lorem ip
 Product.create! :name => "Toys Car", :price => 50.00, :description => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :category => toys
 Product.create! :name => "Game", :price => 60.00, :description => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :category => toys
 Product.create! :name => "Table", :price => 70.00, :description => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :category => furniture
-=end
-Product.create! :name => "Bed", :price => 80.00, :description => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :category => "Furniture"
-Product.create! :name => "Chair", :price => 90.00, :description => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :category => ""
+
+Product.create! :name => "Bed", :price => 80.00, :description => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :category => furniture
+Product.create! :name => "Chair", :price => 90.00, :description => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :category => furniture
 Product.create! :name => "Wardrobe", :price => 20.00, :description => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :category => furniture
