@@ -17,3 +17,27 @@
 .navbar-brand, .nav-link {
     text-decoration: none !important;
 }
+#footer{
+    background-color: #212121;
+    height: 60px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    // line-height: 50px;
+    color: #aaa;
+    text-align: center;
+    width: 100%;
+}
+#footer a, #footer span {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    position: relative;
+    bottom: 25px;
+}
+.copy-right {
+    position: relative;
+    color: #fff;
+    bottom: 24px;
+    float: right;
+}
