@@ -1,0 +1,48 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    padding: 12px;
+    background: #FFFFF0;
+}
+
+.price {
+    color: grey;
+    font-size: 22px;
+}
+
+.card .mt-2{
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+.view-product-btn {
+    color: #666 !important;
+}
+.card .mt-2:hover {
+    opacity: 0.9;
+}
+.product-block {
+    padding-bottom: 35px;
+}
+.search-btn{
+    right: 0;
+}
+#search, .search-button {
+    font-size: 17px;
+}
+.custom-nav{
+    margin-right: 14%;
+}

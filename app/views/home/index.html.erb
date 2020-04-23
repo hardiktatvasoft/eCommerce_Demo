@@ -1,0 +1,42 @@
+<%= stylesheet_link_tag "home" %>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <h2>Product List</h2>
+        </div>
+        <div class="col-sm-3">
+            <div class="md-form mt-0">
+            <%= form_tag(home_index_path, :method => "get", class: 'navbar-form navbar-left custom-nav') do %>  
+                <div class="input-group">
+                    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+                    <div class="input-group-btn search-btn">
+                        <%= button_tag "", :class => 'btn btn-info search-button glyphicon glyphicon-search',:name => nil%>
+                    </div>
+                </div>
+            <% end %>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <% if @products.blank? %>
+    <div class="row">
+        <div class="col-sm-12">
+            <p>Product list is empty</p>
+        </div>
+    </div>
+    <% else %>
+    <div class="row">
+        <% @products.each do |product| %>
+            <div class="col-sm-4 product-block" id="<%= product.id %>">
+                <div class="card">
+                <img src="<%= product.image %>" alt="<%= product.image %>" height="200">
+                <h3><%= product.name %></h3>
+                <p class="price">$ <%= product.price %></p>
+                <%= link_to "View Product", product_index_path(id: product.id), class: "btn btn-light mt-2 view-product-btn " %>
+                <%= link_to "Add to Cart", product_index_path(id: product.id), class: "btn btn-danger mt-2" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <% end %>
+</div>
