@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200422045431) do
+ActiveRecord::Schema.define(version: 20200423080828) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 20200422045431) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
+  create_table "cms_pages", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.string "bannerimage"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -73,6 +82,12 @@ ActiveRecord::Schema.define(version: 20200422045431) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.datetime "date_of_birth"
+    t.boolean "is_female", default: false
+    t.string "firstname"
+    t.string "lastname"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
