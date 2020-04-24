@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200421094928) do
+ActiveRecord::Schema.define(version: 20200424094244) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -44,9 +44,6 @@ ActiveRecord::Schema.define(version: 20200421094928) do
     t.datetime "updated_at", null: false
   end
 
-  
-
-
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
@@ -57,7 +54,6 @@ ActiveRecord::Schema.define(version: 20200421094928) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
-
   create_table "cms_pages", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -67,6 +63,17 @@ ActiveRecord::Schema.define(version: 20200421094928) do
     t.string "bannerimage"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "product_id"
+    t.datetime "order_date"
+    t.integer "quantity"
+    t.text "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
