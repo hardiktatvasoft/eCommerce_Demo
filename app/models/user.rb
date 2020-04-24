@@ -8,7 +8,7 @@ class User < ApplicationRecord
 	# User Avatar Validation 
   validates_integrity_of :avatar
   validates_processing_of :avatar
-
+  has_many :order
 
   
 end
