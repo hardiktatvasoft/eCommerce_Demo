@@ -57,5 +57,7 @@ gem 'devise'
 gem 'activeadmin'
 gem 'bootstrap', '~> 4.4.1'
 gem 'carrierwave'
+gem 'activeadmin_quill_editor'
+gem 'mini_magick'
 
 
