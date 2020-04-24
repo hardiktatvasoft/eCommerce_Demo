@@ -19,48 +19,29 @@ ActiveAdmin.register Product do
     id_column
     column :name
     column :price
-    column "Description" do |prod|
-        simple_format prod.description
-    end
+    column :description
     column :category
     column :image do |prod|
       if prod.image.present?
-        img src: prod.image.thumb
+        img src: prod.image, height:75, width:75
+      else
+
       end
     end
     actions
   end
 
 
-  filter :name
-  filter :price
-  filter :category
-  
   show do
       attributes_table  do
         row :name
-        row :price        
-        row :description do
-             simple_format product.description
-        end      
+        row :price
+        row :description
+        row :category
         row :image do |prod|
-          if prod.image.present? 
-            image_tag prod.image, height: 250, width: 250
-          end
+          image_tag prod.image, height: 250, width: 250
         end
      end
-  end
-
-
-  form do |f|
-    f.inputs 'Product' do
-      f.input :name
-      f.input :price
-      f.input :description, as: :quill_editor
-      f.input :category
-      f.input :image
-    end
-    f.actions
-  end
+ end
   
 end
