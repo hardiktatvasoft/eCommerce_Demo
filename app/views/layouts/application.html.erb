@@ -3,16 +3,23 @@
   <head>
     <title>ECommerceDemo</title>
     <%= csrf_meta_tags %>
-
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
   	<%= render 'layouts/navbar' %>
- 
   	<div class="container p-5">
  		<%= yield %>
-    </div>	
+    </div>
+    <div id="footer">
+      <div>
+        <%= link_to "About Us", home_index_path, class: "" %>
+        <span> | </span>
+        <%= link_to "Contact Us", home_index_path, class: "" %>
+      </div>
+      <p class="copy-right">&copy; 2020 All Rights Reserved<p/>
+    </div>
   </body>
 </html>

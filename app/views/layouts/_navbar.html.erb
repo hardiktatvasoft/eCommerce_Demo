@@ -6,7 +6,7 @@
 
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav">
-      <a href="#" class="nav-item nav-link">Home</a>
+      <%= link_to "Home", home_index_path, class: "nav-item nav-link" %>
     </div>
     <div class="navbar-nav ml-auto">
       <% if current_user.present? %>
