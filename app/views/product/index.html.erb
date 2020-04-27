@@ -17,7 +17,7 @@
 
         <div class="product-price">
             <span>$ <%= @product.price %></span>
-            <%= link_to "Add to Cart", product_index_path(id: @product.id), class: "btn btn-danger mt-2 cart-btn" %>
+            <%= link_to "Add to Cart", add_to_cart_cart_index_path(product_id: @product.id), class: "btn btn-danger mt-2 cart-btn", method: :post %>
         </div>
     </div>
 </main>
