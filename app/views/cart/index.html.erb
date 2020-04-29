@@ -1,2 +1,69 @@
-<h1>Cart#index</h1>
-<p>Find me in app/views/cart/index.html.erb</p>
+<%= stylesheet_link_tag "home" %>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Cart Items</h2>
+        </div>
+    </div>
+    <hr>
+    <% if @cartItems.blank? %>
+    <div class="row">
+        <div class="col-sm-12">
+            <p>Cart is empty</p>
+        </div>
+    </div>
+    <% else %>
+    <div class="cart-container">
+	    <table id="cart" class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th style="width:50%">Product</th>
+                    <th style="width:10%">Price</th>
+                    <th style="width:8%">Quantity</th>
+                    <th style="width:22%" class="text-center">Subtotal</th>
+                    <th style="width:10%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @cartItems.each do |cart| %>
+                    <%= form_for cart do |f| %>
+                        <tr>
+                            <td data-th="Product">
+                                <div class="row">
+                                    <div class="col-sm-2 hidden-xs"><img src="<%= cart.product&.image %>" alt="..." class="img-responsive"/></div>
+                                    <div class="col-sm-10">
+                                        <h4 class="nomargin"><%= cart.product&.name %></h4>
+                                        <p><%= cart.product&.description %></p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-th="Price">$<%= cart.product&.price %></td>
+                            <td data-th="Quantity">
+                                <%= f.number_field :quantity, step: 1, value:cart.quantity, class: 'form-control text-center' %>
+                            </td>
+                            <% @subtotal += cart.product&.price * cart.quantity %>
+                            <td data-th="Subtotal" class="text-center">$<%= cart.product&.price * cart.quantity %></td>
+                            <td class="actions" data-th="">
+                                <%= f.button(type: 'submit', class: "btn btn-info btn-sm") do %>
+                                    <i class="glyphicon glyphicon-save"></i>
+                                  <% end %>
+                                <%= link_to cart_path(cart.id), :class => 'btn btn-danger btn-sm', method: :delete do %>
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                <% end %>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><a href="/" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a></td>
+                    <td colspan="2" class="hidden-xs"></td>
+                    <td class="hidden-xs text-center"><strong>Total $<%= @subtotal %></strong></td>
+                    <td><a href="#" class="btn btn-success btn-block">Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <% end %>
+</div>

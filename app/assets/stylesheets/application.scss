@@ -17,6 +17,9 @@
 .navbar-brand, .nav-link {
     text-decoration: none !important;
 }
+.navbar {
+    border-radius: 0;
+}
 #footer{
     background-color: #212121;
     height: 60px;
@@ -40,4 +43,24 @@
     color: #fff;
     bottom: 24px;
     float: right;
+}
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:65px;
+	right:40px;
+	background-color:#dc3545;
+	color:#FFF !important;
+	border-radius:50px;
+    text-align:center;
+    font-size: 30px;
+}
+
+.my-float{
+	margin-top:13px;
+}
+
+.my-float:hover{
+	box-shadow: 2px 2px 3px #dc3545;
 }

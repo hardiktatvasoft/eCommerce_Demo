@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <h2>Product List</h2>
+            <h2>Products</h2>
         </div>
         <div class="col-sm-3">
             <div class="md-form mt-0">
@@ -30,7 +30,7 @@
             <div class="col-sm-4 product-block" id="<%= product.id %>">
                 <div class="card">
                 <img src="<%= product.image %>" alt="<%= product.image %>" height="200">
-                <h3><%= product.name %></h3>
+                <h5><%= product.name %></h5>
                 <p class="price">$ <%= product.price %></p>
                 <%= link_to "View Product", product_index_path(id: product.id), class: "btn btn-light mt-2 view-product-btn " %>
                 <%= link_to "Add to Cart", add_to_cart_cart_index_path(product_id: product.id), class: "btn btn-danger mt-2", method: :post %>
