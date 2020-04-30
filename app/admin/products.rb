@@ -5,12 +5,12 @@ ActiveAdmin.register Product do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :name, :price, :description, :category_id, :image
+   permit_params :name, :price, :description, :category_id, :image, :quantity
   #
   # or
   #
   permit_params do
-    permitted = [:name, :price, :description, :category_id, :image]
+    permitted = [:name, :price, :description, :category_id, :image, :quantity]
     permitted << :other if params[:action] == 'create' && current_admin_user
     permitted
   end
@@ -30,6 +30,8 @@ ActiveAdmin.register Product do
         img src: prod.image.thumb
       end
     end
+
+    column :quantity
     actions
   end
 
@@ -37,6 +39,7 @@ ActiveAdmin.register Product do
   filter :name
   filter :price
   filter :category
+  filter :quantity
   
   show do
       attributes_table  do
@@ -50,6 +53,7 @@ ActiveAdmin.register Product do
             image_tag prod.image, height: 250, width: 250
           end
         end
+        row :quantity
      end
   end
 
@@ -61,6 +65,7 @@ ActiveAdmin.register Product do
       f.input :description, as: :quill_editor
       f.input :category
       f.input :image
+      f.input :quantity
     end
     f.actions
   end
