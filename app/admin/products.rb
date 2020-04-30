@@ -18,7 +18,9 @@ ActiveAdmin.register Product do
   index do
     id_column
     column :name
-    column :price
+    column :price do |prod|
+       number_to_currency prod.price
+    end
     column "Description" do |prod|
         simple_format prod.description
     end

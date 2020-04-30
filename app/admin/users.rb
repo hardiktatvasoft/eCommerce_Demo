@@ -4,6 +4,7 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
+  
   permit_params :email, :username, :firstname, :lastname, :is_female, :date_of_birth, :avatar, :avatar_cache, :remove_avatar
   #
   # or
