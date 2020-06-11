@@ -32,8 +32,16 @@
                 <img src="<%= product.image %>" alt="<%= product.image %>" height="200">
                 <h5><%= product.name %></h5>
                 <p class="price">$ <%= product.price %></p>
-                <%= link_to "View Product", product_index_path(id: product.id), class: "btn btn-light mt-2 view-product-btn " %>
-                <%= link_to "Add to Cart", add_to_cart_cart_index_path(product_id: product.id), class: "btn btn-danger mt-2", method: :post %>
+                <%= link_to product_index_path(id: product.id), :class => 'btn btn-light mt-2 view-product-btn' do %>
+                    <i class="glyphicon glyphicon-eye-open"></i> View Product
+                <% end %>
+                <% if product.quantity > 0 %>
+                    <%= link_to add_to_cart_cart_index_path(product_id: product.id), :class => 'btn btn-danger mt-2', method: :post do %>
+                        <i class="glyphicon glyphicon-shopping-cart"></i> Add to Cart
+                    <% end %>
+                <% else %>
+                    <label class="btn btn-warning mt-2">Out of Stock</label>
+                <% end %>
                 </div>
             </div>
         <% end %>

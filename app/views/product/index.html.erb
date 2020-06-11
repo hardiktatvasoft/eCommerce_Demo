@@ -12,7 +12,7 @@
             <h2><%= @product.name %></h2>
             <span><%= @product.category&.name %></span>
             <br>
-            <p><%= @product.description %></p>
+            <%= sanitize @product.description.html_safe %>
         </div>
 
         <div class="product-price">

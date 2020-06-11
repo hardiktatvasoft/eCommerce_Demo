@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
 	root :to => 'home#index'
 	get '/', to: 'home#index'
+	get '/my-orders', to: 'order_product#index'
 	resources :product
+	resources :order_product do
+		collection do
+			post :place_order
+			get :order_detail
+		end
+	end
 	resources :cart do
 		collection do
 			post :add_to_cart

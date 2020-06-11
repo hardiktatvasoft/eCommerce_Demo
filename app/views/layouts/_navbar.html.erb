@@ -9,6 +9,7 @@
       <%= link_to "Home", root_path, class: "nav-item nav-link" %>
       <a href="/contact-us" class="nav-item nav-link">Contact Us</a>
       <a href="/about-us" class="nav-item nav-link">About Us</a>
+      <a href="/my-orders" class="nav-item nav-link">My Orders</a>
     </div>
     <div class="navbar-nav ml-auto">
       <% if current_user.present? 
@@ -66,5 +67,11 @@
 <% else %>
   <div class="banner">
     <img src="/assets/banner.jpg" alt="banner">
+  </div>
+<% end %>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= msg %>
   </div>
 <% end %>

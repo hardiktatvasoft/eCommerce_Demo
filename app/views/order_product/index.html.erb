@@ -1,0 +1,49 @@
+<%= stylesheet_link_tag "order_product" %>
+<div class="container">
+    <div class="order-container">
+        <div class="panel panel-default panel-order">
+            <div class="panel-heading">
+                <strong>Order history</strong>
+                <div class="btn-group pull-right">
+                    <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                        Filter history <i class="fa fa-filter"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Approved orders</a></li>
+                        <li><a href="#">Pending orders</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+            <% if @orders.blank? %>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>No orders yet.</p>
+                </div>
+            </div>
+            <% else %>
+            <% @orders.each do |order| %>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-1"><img src="<%= order.product&.image.thumb %>" class="media-object img-thumbnail"></div>
+                        <div class="col-md-11">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="pull-right"><label class="label label-danger">rejected</label> </div>
+                                    <span><strong><%= order.product&.name %></strong></span> <span class="label label-info"><%= order.product&.category&.name %></span><br>
+                                    Quantity : <%= order.quantity %>, cost: $ <%= order.product&.price * order.quantity %> <br>
+                                </div>
+                                <div class="col-md-12">
+                                    Order made on <%= order.created_at.to_formatted_s(:long_ordinal) %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>
